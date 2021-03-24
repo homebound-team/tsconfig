@@ -8,5 +8,8 @@
   },
   "dependencies": {
     "@tsconfig/recommended": "^1.0.1"
+  },
+  "devDependencies": {
+    "semantic-release": "^17.4.0"
   }
 }
