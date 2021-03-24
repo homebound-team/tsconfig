@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "homebound's base tsconfig",
   "license": "MIT",
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
   "dependencies": {
     "@tsconfig/recommended": "^1.0.1"
   }
