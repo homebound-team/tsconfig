@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@homebound/tsconfig",
   "version": "1.0.0",
   "description": "homebound's base tsconfig",
   "license": "MIT",
