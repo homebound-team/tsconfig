@@ -1,0 +1,9 @@
+{
+  "name": "tsconfig",
+  "version": "1.0.0",
+  "description": "homebound's base tsconfig",
+  "license": "MIT",
+  "dependencies": {
+    "@tsconfig/recommended": "^1.0.1"
+  }
+}
