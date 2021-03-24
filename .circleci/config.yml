@@ -20,11 +20,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build:
-          context: npm
       - publish:
-          requires:
-            - build
           context:
             - npm
             - github
@@ -32,16 +28,6 @@ workflows:
             <<: *only-run-on-main
 
 jobs:
-  build:
-    docker:
-      - <<: *node-image
-    steps:
-      - checkout
-      - run: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc'
-      - run: npm install
-      - run: npm run build
-      - run: npm test
-
   publish:
     docker:
       - <<: *node-image
@@ -49,5 +35,4 @@ jobs:
       - checkout
       - run: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc'
       - run: npm install
-      - run: npm run build
       - run: npm run semantic-release
