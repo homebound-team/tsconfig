@@ -1,17 +1,11 @@
 version: 2.1
 
-only-run-on-branches: &only-run-on-branches
-  branches:
-    ignore:
-      - main
+orbs:
+  node: circleci/node@5.0.0
 
-only-run-on-main: &only-run-on-main
-  branches:
-    only:
-      - main
 
 node-image: &node-image
-  image: circleci/node:14.8.0
+  image: cimg/node:14.8.0
   auth:
     username: $DOCKERHUB_USERNAME
     password: $DOCKERHUB_ACCESS_TOKEN
@@ -22,10 +16,13 @@ workflows:
     jobs:
       - publish:
           context:
-            - npm
+            - npm-publish
+            - dockerhub
             - github
           filters:
-            <<: *only-run-on-main
+            branches:
+              only:
+                - main
 
 jobs:
   publish:
@@ -34,5 +31,5 @@ jobs:
     steps:
       - checkout
       - run: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc'
-      - run: npm install
+      - node/install-packages
       - run: npm run semantic-release
