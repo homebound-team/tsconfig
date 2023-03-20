@@ -4,6 +4,8 @@
     "target": "ES2022",
     "declaration": true,
     "moduleResolution": "Node",
+    // See https://twitter.com/kuizinas/status/1636641120477384705
+    "declarationMap": true,
     "isolatedModules": true,
     "outDir": "../../../dist",
     "baseUrl": "../../../",
