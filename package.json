@@ -33,5 +33,6 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
