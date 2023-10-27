@@ -5,7 +5,7 @@ orbs:
 
 
 node-image: &node-image
-  image: cimg/node:18.18.0
+  image: cimg/node:20.9.0
   auth:
     username: $DOCKERHUB_USERNAME
     password: $DOCKERHUB_ACCESS_TOKEN
