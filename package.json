@@ -7,11 +7,11 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@tsconfig/recommended": "^1.0.1"
+    "@tsconfig/recommended": "^1.0.13"
   },
   "devDependencies": {
-    "conventional-changelog-conventionalcommits": "^4.5.0",
-    "semantic-release": "^17.4.0"
+    "conventional-changelog-conventionalcommits": "^10.2.1",
+    "semantic-release": "^25.0.5"
   },
   "release": {
     "branches": [
@@ -34,5 +34,5 @@
       "@semantic-release/github"
     ]
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@4.17.1"
 }
