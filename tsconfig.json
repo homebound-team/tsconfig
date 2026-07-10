@@ -3,17 +3,25 @@
   "compilerOptions": {
     "target": "ES2022",
     "declaration": true,
-    "moduleResolution": "Node",
     // See https://twitter.com/kuizinas/status/1636641120477384705
     "declarationMap": true,
     "isolatedModules": true,
+    // Bundlers (Vite/esbuild) and tsx own resolution + execution, so emit ESM and let
+    // the bundler resolve. `preserve` keeps import/export as-authored and still tolerates
+    // require() interop mid CJS->ESM. Replaces the removed `moduleResolution: node`.
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    // Make file-by-file transpilers (esbuild/tsx) elide type-only imports correctly.
+    "verbatimModuleSyntax": true,
     "outDir": "../../../dist",
-    "baseUrl": "../../../",
+    // TS 7 defaults rootDir to the config's own dir; pin it so dist/ keeps mirroring src/.
+    "rootDir": "../../../src",
+    // baseUrl was removed in TS 7; its `../../../` prefix now lives in each mapping.
     "paths": {
-      "src/*": ["src/*"],
+      "src/*": ["../../../src/*"],
       // See https://github.com/LeDDGroup/typescript-transform-paths/issues/132
-      "src": ["src"]
-    },
+      "src": ["../../../src"]
+    }
   },
   "include": ["../../../src"],
   "exclude": ["../../../node_modules"]
